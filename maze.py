@@ -1,10 +1,27 @@
 import tkinter as tk 
 import random
+import math
 
 
 Row = 43
 Col = 45
 cell = 15
+
+def draw_sun(cx, cy):
+    size = cell // 2 - 4
+    ray = cell // 2 - 3
+    items = []
+    for angle in range(0, 360, 45):
+        rad = math.radians(angle)
+        x1 = cx + size * math.cos(rad)
+        y1 = cy + size * math.sin(rad)
+        x2 = cx + (size + ray) * math.cos(rad)
+        y2 = cy + (size + ray) * math.sin(rad)
+        items.append(canvas.create_line(x1, y1, x2, y2, fill='#f5d505', width=2))
+    items.append(canvas.create_oval(cx - size, cy - size, cx + size, cy + size,
+                                    fill='#f0b70e', outline='#f0b70e'))
+    return items
+
 
 def in_heart(r, c):
     x = (c- Col/2)/(Col/2.38)
@@ -100,11 +117,13 @@ canvas.pack()
 draw(maze, canvas)
 
 p_pos=[st_r, st_c]
-p = canvas.create_text(st_c*cell + cell//2, st_r*cell + cell//2, text='☀', fill= '#e0e03a', font = ('Segoe UI Symbol', 18, 'bold'))
+sun = draw_sun(st_c*cell + cell//2, st_r*cell + cell//2)
+
+
             
 def key_move(e) :
     global p_pos
-    global p 
+    global sun
     
     offset_row=offset_col=0
     
@@ -122,8 +141,10 @@ def key_move(e) :
     
     if maze[new_row][new_col] != '#':
         p_pos = [new_row, new_col]
-        canvas.coords(p, new_col*cell + cell//2, new_row*cell + cell//2)
-        
+        for part in sun:
+            canvas.delete(part)
+        sun = draw_sun(new_col*cell + cell//2, new_row*cell + cell//2)
+
         if maze[new_row][new_col] == 'e': ##WIN
             root.after(500, win_animation)
             
