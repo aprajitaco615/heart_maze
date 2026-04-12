@@ -100,7 +100,7 @@ canvas.pack()
 draw(maze, canvas)
 
 p_pos=[st_r, st_c]
-p = canvas.create_text(st_c*cell + cell//2, st_r*cell + cell//2, text='☀', fill= '#e0e03a', font = ('Arial', 18, 'bold'))
+p = canvas.create_text(st_c*cell + cell//2, st_r*cell + cell//2, text='☀', fill= '#e0e03a', font = ('Segoe UI Symbol', 18, 'bold'))
             
 def key_move(e) :
     global p_pos
