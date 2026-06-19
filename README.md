@@ -15,7 +15,7 @@ Prerequisites:
 Execution
 -Clone the repository and execute the main python file:
 Bash
-git clone https://github.com/YOUR_USERNAME/heart-maze.git
+git clone https://github.com/aprajitaco615/heart-maze.git
 cd heart-maze
 python main.py
 
