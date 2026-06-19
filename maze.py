@@ -46,7 +46,7 @@ def carve(row, col):
 def win_mes():
     canvas.config(bg='#dea0de')
     canvas.create_text(Col*cell//2, Row*cell//2,
-                       text='Victory!!!!!!\n\nHere have my heart as the prize: 🫀',
+                       text='Victory!!!!!!',
                        font=('Helvetica', 25), justify='center')
 
     
