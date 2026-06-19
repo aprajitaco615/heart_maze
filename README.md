@@ -14,10 +14,10 @@ Prerequisites:
 
 Execution
 -Clone the repository and execute the main python file:
-     Bash
-     git clone https://github.com/YOUR_USERNAME/heart-maze.git
-     cd heart-maze
-     python main.py
+Bash
+git clone https://github.com/YOUR_USERNAME/heart-maze.git
+cd heart-maze
+python main.py
 
 Controls
 -Movement: Use the Arrow Keys (Up, Down, Left, Right) to navigate the sun token out of the heart's depths.
